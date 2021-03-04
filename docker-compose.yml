@@ -1,10 +1,13 @@
 version: "3.0"
 services:
-  dockerapp:
-    build: .
+  dockerapp:         # First service
+    build: .         # Directory to file the Dockerfile for the dockerapp service
     ports:
-      - "5000:5000"
-    depends_on:
+      - "5000:5000"  # Port mapping container port: host port
+    depends_on:      # Service dockerapp depends on
       - redis
-  redis:
+  redis:            # second service
     image: redis:3.2.0
+
+
+    # You can specify either a Dockerfile (via a build directory) or an image when you define a service
